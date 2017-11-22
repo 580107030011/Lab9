@@ -1,0 +1,60 @@
+﻿@model Tuple < List<Pre_project.Models.Quiz>, List<Pre_project.Models.Answer>>
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>RIANRAI.COM</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="~/asset/css/freelancer.css" rel="stylesheet">
+</head>
+<body id="page-top">
+    <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <span class="name">เริ่มทำแบบทดสอบ</span>
+                <hr class="star-light">
+            </div>
+        </div>
+    </header>
+
+    @using (Html.BeginForm("CalculateTest", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <center>
+            <br />
+            @{var end = 0;}
+                    @foreach (var item in Model.Item1)
+            {
+                        end += 5;
+                <h4>@Html.DisplayFor(modelItem => item.Quiz_no). @Html.DisplayFor(modelItem => item.Detail)</h4>
+                        <div style="padding-left:40% ">
+                            @for (var start = end - 5; start < end; start++)
+                            {
+                                <div class="row" >
+                                    <input style=" margin-top: 7px;"type="radio" name="answer_@item.Quiz_no" value="@Model.Item2[start].Type_no" required> &nbsp; @Html.Raw(Model.Item2[start].Detail)
+                                    <br/>
+                                </div>
+                            }
+                        </div>
+                <br/>
+            }
+            <input class="btn btn-success btn-lg" type="submit" value="OK" />
+        </center>
+        <br />
+    }
+
+</body>
+</html>

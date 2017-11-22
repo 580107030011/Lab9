@@ -1,0 +1,62 @@
+﻿@model Tuple<Pre_project.Models.Type_fac, List<Pre_project.Models.Faculty>>
+
+@{
+    ViewBag.Title = "Nature";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>RIANRAI.COM</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="~/asset/css/freelancer.css" rel="stylesheet">
+</head>
+<body id="page-top">
+
+    <section id="portfolio">
+        <center>
+            <br />
+            <br />
+            <br />
+            <br />
+            <img src="~/Pic/social_icon.png" style="height:200px; width:auto" onclick="location.href='@Url.Action("Social", "FindFaculty")';">
+            <img src="~/Pic/art_icon.png" style="height:200px; width:auto" onclick="location.href='@Url.Action("Art", "FindFaculty")';">
+            <img src="~/Pic/tech_icon.png" style="height:200px; width:auto" onclick="location.href='@Url.Action("Tech", "FindFaculty")';">
+            <img src="~/Pic/doctor_icon.png" style="height:200px; width:auto" onclick="location.href='@Url.Action("Doc", "FindFaculty")';">
+            <img src="~/Pic/nature_icon.png" style="height:200px; width:auto" onclick="location.href='@Url.Action("Nature", "FindFaculty")';"><br />
+        </center>
+        @using (Html.BeginForm())
+        {
+            <center>
+                <br />
+                <h2>@Html.DisplayFor(model => model.Item1.Type_name)</h2>
+                <h4>@Html.Raw(Model.Item1.Description)</h4>
+                <br />
+                @foreach (var item in Model.Item2)
+                {
+                    <h3 style="border: 2px double #000000; overflow: auto; width: 900px; height: auto; text-align: center;">@Html.DisplayFor(model => item.Fac_name)</h3>
+                    <div style="border: 2px double #000000; overflow: auto; background:#18BC9C; color: white; width: 900px; height: auto; text-align: left;">
+                        <br />
+                        @Html.Raw(item.Description)<br />
+                        <h4 style="color:black;">แนวทางการประกอบอาชีพ</h4>
+                        @Html.Raw(item.Job)<br />
+                    </div>
+                    <br />
+                }
+            </center>
+        }
+
+    </section>
+</body>
+</html>

@@ -1,0 +1,124 @@
+﻿@model Pre_project.Models.Student
+
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>RIANRAI.COM</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="~/asset/css/freelancer.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <span class="name">แก้ไขโปร์ไฟล์ของฉัน</span>
+                <hr class="star-light">
+            </div>
+        </div>
+    </header>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <br />
+        <br />
+        <center>
+            <div class="row">
+                <div class="col-md-12 personal-info">
+                    <div class="form-group">
+                        <label>Username : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" type="text" name="new_username" value="@Model.Username" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ชื่อจริง : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" name="new_firstname" type="text" value="@Model.Student_name">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>นามสกุล : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" name="new_lastname" type="text" value="@Model.Student_lastname">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>เพศ : </label>
+                        <div class="col-lg-4">
+                            <select name="new_sex" type="text" value="@Model.Sex">
+                                <option value="ชาย">ชาย</option>
+                                <option value="หญิง">หญิง</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>โรงเรียน : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" name="new_school" type="text" value="@Model.School">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ระดับชั้น : </label>
+                        <div class="col-lg-4">
+                            <select name="new_grade" type="text" value="@Model.Grade">
+                                <option value="มัธยมศึกษาปีที่ 1">มัธยมศึกษาปีที่ 1</option>
+                                <option value="มัธยมศึกษาปีที่ 2">มัธยมศึกษาปีที่ 2</option>
+                                <option value="มัธยมศึกษาปีที่ 3">มัธยมศึกษาปีที่ 3</option>
+                                <option value="มัธยมศึกษาปีที่ 4">มัธยมศึกษาปีที่ 4</option>
+                                <option value="มัธยมศึกษาปีที่ 5">มัธยมศึกษาปีที่ 5</option>
+                                <option value="มัธยมศึกษาปีที่ 6">มัธยมศึกษาปีที่ 6</option>
+                                <option value="ปวช 1">ปวช 1</option>
+                                <option value="ปวช 2">ปวช 2</option>
+                                <option value="ปวช 3">ปวช 3</option>
+                                <option value="ปวส 1">ปวส 1</option>
+                                <option value="ปวส 2">ปวส 2</option>
+                                <option value="ปวส 3">ปวส 3</option>
+                                <option value="อื่นๆ">อื่นๆ</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>อีเมล : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" name="new_email" type="text" value="@Model.Email">
+                        </div>
+                    </div>
+
+                    <br />
+                    <button class="btn btn-success btn-lg" type="submit">บันทึก</button>
+                    <button class="btn btn-success btn-lg" onclick="location.href='@Url.Action("ProfileStudent", "Student")';">ยกเลิก</button>
+                        
+                </div>
+            </div>
+
+        </center>
+        <br />
+        <br />
+    }
+</body>
+
+</html>

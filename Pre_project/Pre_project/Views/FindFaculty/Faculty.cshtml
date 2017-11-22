@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Faculty";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>RIANRAI.COM</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="~/asset/css/freelancer.css" rel="stylesheet">
+</head>
+<body id="page-top">
+    <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <span class="name">คณะที่เปิดสอนในประเทศไทย</span>
+                <hr class="star-light">
+                <span class="skills">แบ่งออกเป็น 5 กลุ่ม คลิกที่รูปภาพ เพื่อดูข้อมูลของคณะต่างๆ</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="portfolio">
+        <center>
+            <img src="~/Pic/social_icon.png" style="height:200px; width:auto" onclick="location.href='@Url.Action("Social", "FindFaculty")';">
+            <img src="~/Pic/art_icon.png" style="height:200px; width:auto" onclick="location.href='@Url.Action("Art", "FindFaculty")';">
+            <img src="~/Pic/tech_icon.png" style="height:200px; width:auto" onclick="location.href='@Url.Action("Tech", "FindFaculty")';">
+            <img src="~/Pic/doctor_icon.png" style="height:200px; width:auto" onclick="location.href='@Url.Action("Doc", "FindFaculty")';">
+            <img src="~/Pic/nature_icon.png" style="height:200px; width:auto" onclick="location.href='@Url.Action("Nature", "FindFaculty")';"><br />
+        </center>
+    </section>
+</body>
+</html>

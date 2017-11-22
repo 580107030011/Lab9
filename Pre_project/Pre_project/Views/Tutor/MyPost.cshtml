@@ -1,0 +1,68 @@
+﻿@model List<Pre_project.Models.Post_Tutor>
+@{
+    ViewBag.Title = "MyPost";
+    Layout = "~/Views/Shared/_LayoutT.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>RIANRAI.COM</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/Scripts/bootstrap.min.js">
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Custom styles for this template -->
+</head>
+<body id="page-top">
+    <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <span class="name">วิชาของฉัน</span>
+                <hr class="star-light">
+                <span class="skills">วิชาของคุณ @Request.Cookies["C_Username"].Value ที่ทำการเพิ่มไว้แล้ว</span>
+            </div>
+        </div>
+    </header>
+    <br />
+    <br />
+    <center>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <center>
+                        <tr>
+                            <th>หัวเรื่อง</th>
+                            <th>วิชา</th>
+                            <th>ราคาต่อชั่วโมง</th>
+                            <th>คำอธิบาย</th>
+                            <th> </th>
+                        </tr>
+                    </center>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(model => item.Post_name)</td>
+                            <td>@Html.DisplayFor(model => item.Subject)</td>
+                            <td>@Html.DisplayFor(model => item.Price)</td>
+                            <td>@Html.DisplayFor(model => item.Note)</td>
+                            <td>@Html.ActionLink("Read more | ", "ReadPost", new { id = item.Post_no }) @Html.ActionLink("Edit | ", "EditPost", new { id = item.Post_no }) @Html.ActionLink(" Delete", "DeletePost", new { id = item.Post_no })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </center>
+</body>
+</html>

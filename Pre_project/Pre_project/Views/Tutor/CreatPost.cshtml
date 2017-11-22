@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "CreatPost";
+    Layout = "~/Views/Shared/_LayoutT.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>RIANRAI.COM</title>
+        <!-- Bootstrap core CSS -->
+        <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom fonts for this template -->
+        <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <!-- Custom styles for this template -->
+        <link href="~/asset/css/freelancer.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+        <script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
+        <script src="~/Scripts/init-tinymce.js"></script>
+    </head>
+
+    <body id="page-top">
+        <header class="masthead">
+            <div class="container">
+                <div class="intro-text">
+                    <span class="name">เพิ่มวิชาที่สอน</span>
+                    <hr class="star-light">
+                    <span class="skills">เพื่อนำไปประชาสัมพันธ์สำหรับนักเรียน</span>
+                </div>
+            </div>
+        </header>
+        <br />
+        <br />
+        <div class="form-horizontal">
+            <center>
+                <div class="form-group">
+                    <div class="col-lg-4">
+                        <input class="form-control" id="Username_post" name="Username_post" type="hidden" value="@Request.Cookies["C_Username"].Value">
+                        <br />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">หัวเรื่อง : </label>
+                    <div class="col-lg-4">
+                        <input class="form-control" id="post_name" name="post_name" type="text" required>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">วิชา : </label>
+                    <div class="col-lg-4">
+                        <select name="subject" id="Subject" required>
+                            <option value="คณิตศาสตร์">คณิตศาสตร์</option>
+                            <option value="เคมี">เคมี</option>
+                            <option value="ชีวะ">ชีวะ</option>
+                            <option value="ฟิสิกส์">ฟิสิกส์</option>
+                            <option value="ภาษาอังกฤษ">ภาษาอังกฤษ</option>
+                            <option value="ภาษาไทย">ภาษาไทย</option>
+                            <option value="สังคมศึกษาศาสตร์">สังคมศึกษาศาสตร์</option>
+                            <option value="ภาษาอื่นๆ">ภาษาอื่นๆ</option>
+                            <option value="อื่นๆ">อื่นๆ</option>
+                        </select>
+                    </div>
+                    <br />
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">ราคาต่อชั่วโมง</label>
+                    <div class="col-lg-4">
+                        <select name="price" required>
+                            <option value="100 - 300 บาท">100 - 300 บาท</option>
+                            <option value="301 - 500 บาท">301 - 500 บาท</option>
+                            <option value="501 - 700 บาท">501 - 700 บาท</option>
+                            <option value="701 - 900 บาท">701 - 900 บาท</option>
+                            <option value="901 - 1200 บาท">901 - 1200 บาท</option>
+                            <option value="1201 - 1500 บาท">1201 - 1500 บาท</option>
+                            <option value="มากกว่า 1500 บาท">มากกว่า 1500 บาท</option>
+                        </select>
+                    </div>
+                    <br />
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-6 control-label">คำอธิบาย(ไม่เกิน 100 ตัวอักษร) : </label>
+                    <div class="col-lg-4">
+                        <input class="form-control" id="note" name="note" type="text" maxlength="100"nkeyup="return ismaxlength(this)" required>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-8 control-label">เนื้อหา(กรุณากรอกช่องทางการติดต่อด้วย เพือให้นักเรียนที่สนใจติดต่อกลับ) : </label>
+                    <div class="col-lg-8">
+                        <textarea class="tinymce" id="description" name="description"></textarea>
+                    </div>
+                </div>
+
+                <br />
+                <input type="submit" class="btn btn-success btn-lg" value="บันทึก" />
+                <a class="btn btn-success btn-lg" onclick="location.href='@Url.Action("MyPost", "Tutor")';">ยกเลิก</a>
+            </center>
+            <br />
+            <br />
+
+            @if (ViewBag.alertPost != null)
+            {
+                <script>
+            alert('@ViewBag.alertPost');
+                </script>
+            }
+
+        </div>
+    </body>
+</html>
+}
+

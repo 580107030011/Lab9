@@ -1,0 +1,164 @@
+﻿body {
+    width: 100%;
+    background-color: #5bb9ff;
+}
+
+.textlabel {
+    color: azure;
+}
+
+.Login_ok {
+    background-color: #2A2A2A;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFF;
+    font-family: Trebuchet MS;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px 40px;
+    text-decoration: none;
+    text-shadow: 1px -1px 2px #000000;
+    margin-left: 28px;
+    width: 115px;
+}
+
+    .Login_ok:hover {
+        background-color: #5bb9ff;
+        color: #FFF;
+    }
+
+    .Login_ok:active {
+        position: relative;
+        top: 1px;
+    }
+
+.navbars {
+    color: #000000;
+    margin-right: 100px;
+}
+
+.Login_cancel {
+    background-color: #2A2A2A;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    display: inline-block;
+    color: #FFF;
+    font-family: Trebuchet MS;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 40px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px -1px 2px #000000;
+    margin-left: 20px;
+}
+
+    .Login_cancel:hover {
+        background-color: #5bb9ff;
+        color: white;
+    }
+
+    .Login_cancel:active {
+        position: relative;
+        top: 1px;
+    }
+
+
+
+
+
+.Login-p {
+    font-family: Cooper;
+    font-size: 60px;
+    color: black;
+}
+
+.broader {
+    font-family: 'initialLilyUPC';
+    width: 600px;
+    height: 1300px;
+    margin: 0px auto 0;
+    display: block;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.container {
+    font-family: 'initialLilyUPC';
+    width: 350px;
+    height: 1400px;
+    margin: 0px auto 0;
+    display: block;
+    margin-top: 50px;
+}
+
+.group {
+    position: relative;
+    margin-bottom: 45px;
+    margin-top: 20px;
+}
+
+input {
+    font-size: 15px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    left: 5px;
+    top: 10px;
+    width: 300px;
+    border: none;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    border-bottom: 1px solid #424949;
+}
+
+    input:focus {
+        outline: none;
+    }
+
+/* LABEL ======================================= */
+label {
+    color: black;
+    font-size: 15px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+/* active state */
+input:focus ~ label, input:valid ~ label {
+    top: -20px;
+    font-size: 20px;
+    color: #5bb9ff;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #5bb9ff;
+}
+
+
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}

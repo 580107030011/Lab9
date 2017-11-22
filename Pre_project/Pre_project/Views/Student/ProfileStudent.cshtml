@@ -1,0 +1,98 @@
+﻿@model Pre_project.Models.Student
+
+@{
+    ViewBag.Title = "ProfileStudent";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>RIANRAI.COM</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="~/asset/css/freelancer.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <span class="name">โปร์ไฟล์ของฉัน</span>
+                <hr class="star-light">
+            </div>
+        </div>
+    </header>
+
+        <br/>
+        <br />
+        <center>
+            <div class="row">
+                <div class="col-md-12 personal-info">
+                    <div class="form-group">
+                        <label>Username : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" type="text" name="username" value="@Model.Username" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ชื่อจริง : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" type="text" value="@Model.Student_name" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>นามสกุล : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" type="text" value="@Model.Student_lastname" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>เพศ : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" type="text" value="@Model.Sex" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>โรงเรียน : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" type="text" value="@Model.School" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ระดับชั้น : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" type="text" value="@Model.Grade" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>อีเมล : </label>
+                        <div class="col-lg-4">
+                            <input class="form-control" type="text" value="@Model.Email" disabled>
+                        </div>
+                    </div>
+                    <br />
+                    <a class="btn btn-success btn-lg" onclick="location.href='@Url.Action("EditProfile", "Student",new { username = Model.Username })';">แก้ไขโปร์ไฟล์</a>
+                    <a class="btn btn-success btn-lg" onclick="location.href='@Url.Action("ChangePasswordS", "Student")';">เปลี่ยนรหัสผ่าน</a>
+                </div>
+            </div>
+        </center>
+        <br />
+        <br />
+    </body>
+</html>

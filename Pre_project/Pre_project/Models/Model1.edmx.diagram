@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="22c6e8aab70e4df98a7f86a6f23d18b5" Name="Diagram1">
+        <EntityTypeShape EntityType="DBpreprojectModel.Answer" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBpreprojectModel.Evaluation" Width="1.5" PointX="10.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBpreprojectModel.Faculty" Width="1.5" PointX="2.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBpreprojectModel.Post_Tutor" Width="1.5" PointX="8" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBpreprojectModel.Quiz" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBpreprojectModel.Result" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBpreprojectModel.Student" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBpreprojectModel.Tutor" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBpreprojectModel.Type_fac" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="DBpreprojectModel.FK_Answer_Quiz" ManuallyRouted="false" />
+        <AssociationConnector Association="DBpreprojectModel.FK_Answer_Type_fac" ManuallyRouted="false" />
+        <AssociationConnector Association="DBpreprojectModel.FK_Evaluation_Post_Tutor" ManuallyRouted="false" />
+        <AssociationConnector Association="DBpreprojectModel.FK_Evaluation_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DBpreprojectModel.FK_Post_Tutor_Tutor" ManuallyRouted="false" />
+        <AssociationConnector Association="DBpreprojectModel.FK_Result_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DBpreprojectModel.FK_Result_Type_fac" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

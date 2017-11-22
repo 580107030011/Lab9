@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Freelancer - Start Bootstrap Theme</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="~/asset/css/freelancer.css" rel="stylesheet">
+</head>
+<body id="page-top">
+
+    @RenderBody()
+    @{
+        if (@Request.Cookies["C_Username"].Value != null)
+        {
+            ViewBag.Message = @Request.Cookies["C_Username"].Value;
+
+        }
+        else
+        {
+            <text>
+                var url = '@Url.Action("SignIn", "SignIn")' ;
+                window.location.href = url ;
+            </text>
+        }
+    }
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Rianrai.com for Student</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        @if (ViewBag.Title == "FindYourself")
+                        {
+                            <a class="active nav-link js-scroll-trigger" onclick="location.href='@Url.Action("FindYourself", "Student")';">ค้นหาตัวเอง</a>
+
+                        }
+                        else
+                        {
+                            <a class="nav-link js-scroll-trigger" onclick="location.href='@Url.Action("FindYourself", "Student")';">ค้นหาตัวเอง</a>
+
+                        }</li>
+                    <li class="nav-item">
+                        @if (ViewBag.Title == "Faculty")
+                        {
+                            <a class="active nav-link js-scroll-trigger" onclick="location.href='@Url.Action("Faculty", "FindFaculty")';">ค้นหาคณะ</a>
+                        }
+                        else
+                        {
+                            <a class="nav-link js-scroll-trigger" onclick="location.href='@Url.Action("Faculty", "FindFaculty")';">ค้นหาคณะ</a>
+                        }
+                    </li>
+                    <li class="nav-item">
+                        @if (ViewBag.Title == "FindTutor")
+                        {
+                            <a class="active nav-link js-scroll-trigger" onclick="location.href='@Url.Action("FindTutor", "Student")';">ค้นหาติวเตอร์</a>
+                        }
+                        else
+                        {
+                            <a class="nav-link js-scroll-trigger" onclick="location.href='@Url.Action("FindTutor", "Student")';">ค้นหาติวเตอร์</a>
+                        }
+                    </li>
+
+                    <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" onclick="location.href='@Url.Action("Index", "Index")';">ลงชื่อออก</a>
+                    </li>
+
+                    <li class="nav-item">
+                        @if (ViewBag.Title == "ProfileStudent")
+                        {
+                            <a class="active nav-link js-scroll-trigger" onclick="location.href='@Url.Action("ProfileStudent", "Student", new { username = @Request.Cookies["C_Username"].Value })';"><b>@Request.Cookies["C_Username"].Value</b></a>
+                        }
+                        else
+                        {
+                            <a class="nav-link js-scroll-trigger" onclick="location.href='@Url.Action("ProfileStudent", "Student", new { username = @Request.Cookies["C_Username"].Value })';"><b>@Request.Cookies["C_Username"].Value</b></a>
+                        }
+                    </li>
+                 
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>

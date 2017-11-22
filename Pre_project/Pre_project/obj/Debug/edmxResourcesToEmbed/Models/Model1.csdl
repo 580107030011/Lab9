@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBpreprojectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="Ans_no" />
+    </Key>
+    <Property Name="Ans_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Quiz_no" Type="Int32" Nullable="false" />
+    <Property Name="Type_no" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Quiz" Relationship="Self.FK_Answer_Quiz" FromRole="Answer" ToRole="Quiz" />
+    <NavigationProperty Name="Type_fac" Relationship="Self.FK_Answer_Type_fac" FromRole="Answer" ToRole="Type_fac" />
+  </EntityType>
+  <EntityType Name="Evaluation">
+    <Key>
+      <PropertyRef Name="E_no" />
+    </Key>
+    <Property Name="E_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="E_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Post_no" Type="Int32" Nullable="false" />
+    <Property Name="Student" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Post_Tutor" Relationship="Self.FK_Evaluation_Post_Tutor" FromRole="Evaluation" ToRole="Post_Tutor" />
+    <NavigationProperty Name="Student1" Relationship="Self.FK_Evaluation_Student" FromRole="Evaluation" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Faculty">
+    <Key>
+      <PropertyRef Name="Fac_no" />
+    </Key>
+    <Property Name="Fac_no" Type="Int32" Nullable="false" />
+    <Property Name="Fac_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Job" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type_no" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Post_Tutor">
+    <Key>
+      <PropertyRef Name="Post_no" />
+    </Key>
+    <Property Name="Post_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Post_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tutor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Evaluations" Relationship="Self.FK_Evaluation_Post_Tutor" FromRole="Post_Tutor" ToRole="Evaluation" />
+    <NavigationProperty Name="Tutor1" Relationship="Self.FK_Post_Tutor_Tutor" FromRole="Post_Tutor" ToRole="Tutor" />
+  </EntityType>
+  <EntityType Name="Quiz">
+    <Key>
+      <PropertyRef Name="Quiz_no" />
+    </Key>
+    <Property Name="Quiz_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answer_Quiz" FromRole="Quiz" ToRole="Answer" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="R_no" />
+    </Key>
+    <Property Name="R_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="R_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Student" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type_no" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Student1" Relationship="Self.FK_Result_Student" FromRole="Result" ToRole="Student" />
+    <NavigationProperty Name="Type_fac" Relationship="Self.FK_Result_Type_fac" FromRole="Result" ToRole="Type_fac" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Student_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Student_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Grade" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Evaluations" Relationship="Self.FK_Evaluation_Student" FromRole="Student" ToRole="Evaluation" />
+    <NavigationProperty Name="Results" Relationship="Self.FK_Result_Student" FromRole="Student" ToRole="Result" />
+  </EntityType>
+  <EntityType Name="Tutor">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tutor_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tutor_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Education" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Post_Tutor" Relationship="Self.FK_Post_Tutor_Tutor" FromRole="Tutor" ToRole="Post_Tutor" />
+  </EntityType>
+  <EntityType Name="Type_fac">
+    <Key>
+      <PropertyRef Name="Type_no" />
+    </Key>
+    <Property Name="Type_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answer_Type_fac" FromRole="Type_fac" ToRole="Answer" />
+    <NavigationProperty Name="Results" Relationship="Self.FK_Result_Type_fac" FromRole="Type_fac" ToRole="Result" />
+  </EntityType>
+  <Association Name="FK_Answer_Quiz">
+    <End Role="Quiz" Type="Self.Quiz" Multiplicity="1" />
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiz">
+        <PropertyRef Name="Quiz_no" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="Quiz_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answer_Type_fac">
+    <End Role="Type_fac" Type="Self.Type_fac" Multiplicity="1" />
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_fac">
+        <PropertyRef Name="Type_no" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="Type_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Evaluation_Post_Tutor">
+    <End Role="Post_Tutor" Type="Self.Post_Tutor" Multiplicity="1" />
+    <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post_Tutor">
+        <PropertyRef Name="Post_no" />
+      </Principal>
+      <Dependent Role="Evaluation">
+        <PropertyRef Name="Post_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Evaluation_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Evaluation">
+        <PropertyRef Name="Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Tutor_Tutor">
+    <End Role="Tutor" Type="Self.Tutor" Multiplicity="1" />
+    <End Role="Post_Tutor" Type="Self.Post_Tutor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tutor">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Post_Tutor">
+        <PropertyRef Name="Tutor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Type_fac">
+    <End Role="Type_fac" Type="Self.Type_fac" Multiplicity="1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_fac">
+        <PropertyRef Name="Type_no" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="Type_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PreprojectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Answers" EntityType="Self.Answer" />
+    <EntitySet Name="Evaluations" EntityType="Self.Evaluation" />
+    <EntitySet Name="Faculties" EntityType="Self.Faculty" />
+    <EntitySet Name="Post_Tutor" EntityType="Self.Post_Tutor" />
+    <EntitySet Name="Quizs" EntityType="Self.Quiz" />
+    <EntitySet Name="Results" EntityType="Self.Result" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Tutors" EntityType="Self.Tutor" />
+    <EntitySet Name="Type_fac" EntityType="Self.Type_fac" />
+    <AssociationSet Name="FK_Answer_Quiz" Association="Self.FK_Answer_Quiz">
+      <End Role="Quiz" EntitySet="Quizs" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answer_Type_fac" Association="Self.FK_Answer_Type_fac">
+      <End Role="Type_fac" EntitySet="Type_fac" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Evaluation_Post_Tutor" Association="Self.FK_Evaluation_Post_Tutor">
+      <End Role="Post_Tutor" EntitySet="Post_Tutor" />
+      <End Role="Evaluation" EntitySet="Evaluations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Evaluation_Student" Association="Self.FK_Evaluation_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Evaluation" EntitySet="Evaluations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Tutor_Tutor" Association="Self.FK_Post_Tutor_Tutor">
+      <End Role="Tutor" EntitySet="Tutors" />
+      <End Role="Post_Tutor" EntitySet="Post_Tutor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Student" Association="Self.FK_Result_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Result" EntitySet="Results" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Type_fac" Association="Self.FK_Result_Type_fac">
+      <End Role="Type_fac" EntitySet="Type_fac" />
+      <End Role="Result" EntitySet="Results" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

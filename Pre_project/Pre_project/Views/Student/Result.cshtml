@@ -1,0 +1,107 @@
+﻿@model Tuple<Pre_project.Models.Type_Fac, List<Pre_project.Models.Faculty>>
+
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>RIANRAI.COM</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="~/asset/css/freelancer.css" rel="stylesheet">
+</head>
+<body id="page-top">
+    <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <span class="name">ผลการทำแบบทดสอบ</span>
+                <hr class="star-light">
+                <span class="skills">ของน้อง @Request.Cookies["C_Username"].Value ณ @DateTime.Now</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="portfolio">
+        @using (Html.BeginForm())
+        {
+            <center>
+                <br />
+                <h2>@Html.DisplayFor(model => model.Item1.Type_name)</h2>
+                <h4>@Html.Raw(Model.Item1.Description)</h4>
+                <br />
+                @if (Model.Item1.Type_no == 1)
+                {
+                    <img src="~/Pic/social1.png" style="height:200px; width:auto">
+                    <img src="~/Pic/social2.png" style="height:200px; width:auto">
+                    <img src="~/Pic/social3.png" style="height:200px; width:auto">
+                    <br />
+                    <h4>ชอบพบปะผู้อื่น ชอบที่จะแลกเปลี่ยนความคิดเห็นกับผู้อื่น มีเหตุผลในการตัดสินใจ</h4>
+                    <h4>เป็นที่ยอมรับของผู้อื่น ชอบที่จะเรียนรู้สิ่งต่างๆ รอบตัว และยังมีความเป็นผู้นำสูง </h4>
+                }
+                else if (Model.Item1.Type_no == 2)
+                {
+                    <img src="~/Pic/art1.png" style="height:200px; width:auto">
+                    <img src="~/Pic/art2.png" style="height:200px; width:auto">
+                    <img src="~/Pic/art3.png" style="height:200px; width:auto">
+                    <br />
+                    <h4>ชอบแสดงออก รักอิสระ มีจิตนาการและความคิดสร้างสรรค์</h4>
+                    <h4>มีอารมณ์อ่อนไหวง่าย มีความเป็นตัวของตัวเองสูง</h4>
+                }
+                else if (Model.Item1.Type_no == 3)
+                {
+                    <img src="~/Pic/tech1.png" style="height:200px; width:auto">
+                    <img src="~/Pic/tech2.png" style="height:200px; width:auto">
+                    <img src="~/Pic/tech3.png" style="height:200px; width:auto">
+                    <br />
+                    <h4>ชอบลงมือทำ ชอบการทดลอง มีความทันสมัย ชอบค้นคว้าเทคโนโลยีใหม่ๆ อยู่เสมอ</h4>
+                    <h4>ชอบในการประดิษฐ์คิดค้นสิ่งต่างๆ รอบตัว คนที่มีความอนทน ไม่ย่อท้อต่ออุปสรรคต่างๆ</h4>
+                }
+                else if (Model.Item1.Type_no == 4)
+                {
+                    <img src="~/Pic/nature1.png" style="height:200px; width:auto">
+                    <img src="~/Pic/nature2.png" style="height:200px; width:auto">
+                    <img src="~/Pic/nature3.png" style="height:200px; width:auto">
+                    <br />
+                    <h4>เป็นคนรักธรรมชาติ รักความสงบ มีความใจเย็น มีน้ำใจ</h4>
+                    <h4>ชอบช่วยเหลือผู้อื่น และใส่ใจในสิ่งแวดล้อมต่างๆ รอบตัว</h4>
+                }
+                else if (Model.Item1.Type_no == 5)
+                {
+                    <img src="~/Pic/doctor1.png" style="height:200px; width:auto">
+                    <img src="~/Pic/doctor2.png" style="height:200px; width:auto">
+                    <img src="~/Pic/doctor3.png" style="height:200px; width:auto">
+                    <br />
+                    <h4>ชอบศึกษาค้นคว้าข้อมูลด้วยตนเอง เป็นคนช่างสังเกต ชอบวิเคราะห์ และแก้ไขปัญหาต่างๆ</h4>
+                    <h4>เป็นคนรักสุขภาพ สนใจและเอาใจใส่ผู้อื่น มีน้ำใจ ชอบช่วยเหลือผู้อื่น</h4>
+                }
+                <br/>
+
+                @foreach (var item in Model.Item2)
+                {
+                    <h3 style="border: 2px double #000000; overflow: auto; width: 900px; height: auto; text-align: center;">@Html.DisplayFor(model => item.Fac_name)</h3>
+                    <div style="border: 2px double #000000; overflow: auto; background:#18BC9C; color: white; width: 900px; height: auto; text-align: left;">
+                        <br />
+                        @Html.Raw(item.Description)<br />
+                        <h4 style="color:black;">แนวทางการประกอบอาชีพ</h4>
+                        @Html.Raw(item.Job)<br />
+                    </div>
+                    <br />
+                }
+            </center>
+        }
+
+    </section>
+</body>
+</html>

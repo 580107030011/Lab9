@@ -1,0 +1,66 @@
+﻿@model Pre_project.Models.Post_Tutor
+@{
+    ViewBag.Title = "ReadPost";
+    Layout = "~/Views/Shared/_LayoutT.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>RIANRAI.COM</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+</head>
+<body id="page-top">
+    <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <span class="name">วิชาของฉัน</span>
+                <hr class="star-light">
+                <span class="skills">วิชาของคุณ @Request.Cookies["C_Username"].Value ที่ทำการเพิ่มไว้แล้ว</span>
+            </div>
+        </div>
+    </header>
+    <br />
+    <br />
+    <center>
+        <div class="form-group">
+            <label>หัวเรื่อง : </label>
+            <div class="col-lg-4">
+                <input class="form-control" type="text" value="@Model.Post_name" disabled>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>วิชา : </label>
+            <div class="col-lg-4">
+                <input class="form-control" type="text" value="@Model.Subject" disabled>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>ราคาต่อชั่วโมง : </label>
+            <div class="col-lg-4">
+                <input class="form-control" type="text" value="@Model.Price" disabled>
+            </div>
+        </div>
+        <div style="border: 2px double #000000; overflow: auto; width: 900px; height: auto; text-align: left;">
+            <br />
+            @Html.Raw(Model.Description)<br />
+        </div>
+        <br />
+
+    </center>
+</body>
+</html>
+
+

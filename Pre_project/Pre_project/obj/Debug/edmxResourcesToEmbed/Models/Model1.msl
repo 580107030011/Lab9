@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBpreprojectModelStoreContainer" CdmEntityContainer="PreprojectEntities">
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="DBpreprojectModel.Answer">
+        <MappingFragment StoreEntitySet="Answer">
+          <ScalarProperty Name="Ans_no" ColumnName="Ans_no" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Quiz_no" ColumnName="Quiz_no" />
+          <ScalarProperty Name="Type_no" ColumnName="Type_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Evaluations">
+      <EntityTypeMapping TypeName="DBpreprojectModel.Evaluation">
+        <MappingFragment StoreEntitySet="Evaluation">
+          <ScalarProperty Name="E_no" ColumnName="E_no" />
+          <ScalarProperty Name="E_date" ColumnName="E_date" />
+          <ScalarProperty Name="Post_no" ColumnName="Post_no" />
+          <ScalarProperty Name="Student" ColumnName="Student" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faculties">
+      <EntityTypeMapping TypeName="DBpreprojectModel.Faculty">
+        <MappingFragment StoreEntitySet="Faculty">
+          <ScalarProperty Name="Fac_no" ColumnName="Fac_no" />
+          <ScalarProperty Name="Fac_name" ColumnName="Fac_name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Job" ColumnName="Job" />
+          <ScalarProperty Name="Type_no" ColumnName="Type_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post_Tutor">
+      <EntityTypeMapping TypeName="DBpreprojectModel.Post_Tutor">
+        <MappingFragment StoreEntitySet="Post_Tutor">
+          <ScalarProperty Name="Post_no" ColumnName="Post_no" />
+          <ScalarProperty Name="Post_name" ColumnName="Post_name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Tutor" ColumnName="Tutor" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quizs">
+      <EntityTypeMapping TypeName="DBpreprojectModel.Quiz">
+        <MappingFragment StoreEntitySet="Quiz">
+          <ScalarProperty Name="Quiz_no" ColumnName="Quiz_no" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Results">
+      <EntityTypeMapping TypeName="DBpreprojectModel.Result">
+        <MappingFragment StoreEntitySet="Result">
+          <ScalarProperty Name="R_no" ColumnName="R_no" />
+          <ScalarProperty Name="R_date" ColumnName="R_date" />
+          <ScalarProperty Name="Student" ColumnName="Student" />
+          <ScalarProperty Name="Type_no" ColumnName="Type_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="DBpreprojectModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Student_name" ColumnName="Student_name" />
+          <ScalarProperty Name="Student_lastname" ColumnName="Student_lastname" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="School" ColumnName="School" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tutors">
+      <EntityTypeMapping TypeName="DBpreprojectModel.Tutor">
+        <MappingFragment StoreEntitySet="Tutor">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Tutor_name" ColumnName="Tutor_name" />
+          <ScalarProperty Name="Tutor_lastname" ColumnName="Tutor_lastname" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Type_fac">
+      <EntityTypeMapping TypeName="DBpreprojectModel.Type_fac">
+        <MappingFragment StoreEntitySet="Type_fac">
+          <ScalarProperty Name="Type_no" ColumnName="Type_no" />
+          <ScalarProperty Name="Type_name" ColumnName="Type_name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
